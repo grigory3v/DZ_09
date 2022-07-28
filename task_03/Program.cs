@@ -1,10 +1,7 @@
 ﻿/*
-Задача 29: Напишите программу, которая задаёт случайный массив случайного размера 
-(от 5 до 10) элементов (значение элементов от 1 до 40) и выводит на экран массив квадратов этих чисел.
+Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 
-1, 2, 5, 7, 19 -> [2, 4, 25, 49, 361]
-
-6, 1, 33 -> [36, 1, 1089]
+m = 2, n = 3 -> A(m,n) = 29
 */
 namespace Task_03
 {
@@ -12,29 +9,29 @@ namespace Task_03
     {
         public static void Main()
         {
-            int [] array = new int[10];
-            for ( int i = 0; i < array.Length; i++ )
-            {   
-                array[i] = new Random().Next(1, 41);
-                Console.Write($"{array[i]} ");
-            }
-            Console.WriteLine();
-            PrintArray(array);   
+            Console.WriteLine("Введите число M");
+            int M = Convert.ToInt32(Console.ReadLine());
 
-        }
-        public static void PrintArray (int[] array)
-        {
-            int square = 0;
-            int length = array.Length;
-            for(int i = 0; i < length; i++)
-            {
-            square = Convert.ToInt32(array[i].ToString());
-            square = square * square;
-            array[i] = square;
-            Console.Write($"{array[i]} ");
-            }
+            Console.WriteLine("Введите число N");
+            int N = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
+            funAkkerman(M: M, N: N);
+
+            Console.WriteLine(funAkkerman(M, N));
+        }
+        static int funAkkerman(int N, int M)
+        {
+            if (N == 0)
+                return M + 1;
+            else
+              if ((N != 0) && (M == 0))
+                return funAkkerman(N - 1, 1);
+            else
+                return funAkkerman(N - 1, funAkkerman(N, M - 1));
         }
 
     }
+
 }
+
+
