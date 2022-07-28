@@ -1,25 +1,34 @@
 ﻿/* 
-Урок 4. Функции продолжение
-Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
 
-3, 5 -> 243 (3⁵)
+M = 1; N = 5. -> ""1, 2, 3, 4, 5""
 
-2, 4 -> 16 
+M = 4; N = 8. -> ""4, 6, 7, 8""
 */
 
-void Degree(int number, int degree)
+namespace Task_01
 {
-    int number_to_the_power = 1;
-    for (int i = 0; i < degree; i++)
+    class Program
     {
-        number_to_the_power = number_to_the_power * number;
+        public static void Main()
+        {
+            Console.WriteLine("Введите число M");
+            int M = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Введите число N");
+            int N = Convert.ToInt32(Console.ReadLine());
+            number(M: M, N: N);
+
+        }
+        static void number(int M, int N)
+        {
+
+            for (; M <= N; M++)
+            {
+                Console.Write($"{M} ");
+            }
+
+        }
+
     }
-    Console.WriteLine($"число {number} в степени {degree} равно {number_to_the_power}");
 }
-
-Console.WriteLine("Введите число");
-int namber = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine("Введите степень");
-int degree = Convert.ToInt32(Console.ReadLine());
-Degree(number: namber, degree: degree);
